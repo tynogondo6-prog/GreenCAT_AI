@@ -7,8 +7,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 0.1
-# ВАЖНО: kivy 2.3.1 и pyjnius без жесткой привязки к старой версии
-requirements = python3,kivy==2.3.1,requests,pillow,pyjnius,setuptools,cython
+requirements = python3,kivy,requests,pillow,pyjnius,setuptools,cython
 
 orientation = portrait
 fullscreen = 0
@@ -18,6 +17,9 @@ android.api = 33
 android.minapi = 21
 android.ndk = 25b
 android.archs = arm64-v8a, armeabi-v7a
+
+# САМАЯ ВАЖНАЯ СТРОКА: автоматически принимаем лицензии Android SDK
+android.accept_sdk_license = True
 
 p4a.branch = master
 
