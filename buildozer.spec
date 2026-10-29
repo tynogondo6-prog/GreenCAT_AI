@@ -7,8 +7,8 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 0.1
-# УБРАЛИ python3==3.10.12 и hostpython3, оставили только имена библиотек
-requirements = python3,kivy,requests,pillow,pyjnius,setuptools,cython
+# Возвращаем фиксированные версии, которые ожидает Docker-образ ArtemSBulgakov
+requirements = python3==3.10.12,kivy==2.3.0,requests,pillow,pyjnius==1.5.0,setuptools,cython
 
 orientation = portrait
 fullscreen = 0
