@@ -7,7 +7,8 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 0.1
-requirements = python3,kivy,requests,pillow,pyjnius,setuptools,cython
+# Фиксируем python3.10 и добавляем openssl с cryptography
+requirements = python3==3.10.12,kivy==2.3.1,openssl,cryptography,requests,pillow,pyjnius==1.6.1,setuptools,cython
 
 orientation = portrait
 fullscreen = 0
@@ -18,7 +19,6 @@ android.minapi = 21
 android.ndk = 25b
 android.archs = arm64-v8a, armeabi-v7a
 
-# САМАЯ ВАЖНАЯ СТРОКА: автоматически принимаем лицензии Android SDK
 android.accept_sdk_license = True
 
 p4a.branch = master
