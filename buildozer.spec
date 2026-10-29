@@ -1,59 +1,25 @@
-# Shipit OS generated buildozer.spec
-# Edit title / package.name / requirements as needed, then re-run shipit.
-
 [app]
+title = GreenCAT AI Camera
+package.name = greencat
+package.domain = org.greencat
 
-# (str) Title of your application
-title = Greencat Ai
-
-# (str) Package name
-package.name = greencatai
-
-# (str) Package domain (needed for android/ios packaging)
-package.domain = org.shipit
-
-# (str) Source code where the main.py live
 source.dir = .
+source.include_exts = py,png,jpg,kv,atlas
 
-# (list) Source files to include
-source.include_exts = py,png,jpg,jpeg,kv,atlas,ttf,txt,json,html,js,css,mp3,wav,ogg,gif,xml
+version = 0.1
+requirements = python3,kivy,requests,pillow,pyjnius
 
-# (list) Source files to exclude
-source.exclude_exts = spec,pyc,pyo
-
-# (list) List of directory to exclude
-source.exclude_dirs = tests, bin, venv, .venv, .git, .github, dist, build, __pycache__
-
-# (str) Application versioning
-version = 0.1.0
-
-# (list) Application requirements (comma separated)
-requirements = python3,kivy
-
-# (str) Supported orientation
 orientation = portrait
-
-# (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
 
-#------------------------------------------------------------------------------
-# Android specific
-#------------------------------------------------------------------------------
-
+android.permissions = CAMERA,FLASHLIGHT,INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 android.api = 33
-android.minapi = 24
+android.minapi = 21
 android.ndk = 25b
-android.accept_sdk_license = True
 android.archs = arm64-v8a, armeabi-v7a
-android.logcat_filters = *:S python:D
 
-# Detected entry: main.py
-
-#------------------------------------------------------------------------------
-# Buildozer settings
-#------------------------------------------------------------------------------
+p4a.branch = master
 
 [buildozer]
-
 log_level = 2
-warn_on_root = 0
+warn_on_root = 1
