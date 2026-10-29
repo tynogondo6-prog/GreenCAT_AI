@@ -1,4 +1,4 @@
-name: Build APK
+name: Build Kivy APK
 
 on:
   push:
@@ -6,33 +6,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-android:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build with Buildozer (Docker)
+        uses: digreatbrian/buildozer-action@v2
         with:
-          python-version: '3.11'
-          
-     - name: Install libtinfo5 workaround
-  run: |
-    wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.2_amd64.deb
-    sudo apt install ./libtinfo5_6.3-2ubuntu0.2_amd64.deb
-          
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
-          pip install --upgrade Cython==0.29.33 virtualenv buildozer
-          
-      - name: Build with Buildozer
-        run: |
-          buildozer -v android debug
-          
+          python-version: 3.11
+          buildozer-cmd: buildozer -v android debug
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: package
+          name: GreenCAT-APK
           path: bin/*.apk
