@@ -7,8 +7,8 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 
 version = 0.1
-# Фиксируем python3.10 и добавляем openssl с cryptography
-requirements = python3==3.10.12,kivy==2.3.1,openssl,cryptography,requests,pillow,pyjnius==1.6.1,setuptools,cython
+# УБРАЛИ python3==3.10.12 и hostpython3, оставили только имена библиотек
+requirements = python3,kivy,requests,pillow,pyjnius,setuptools,cython
 
 orientation = portrait
 fullscreen = 0
