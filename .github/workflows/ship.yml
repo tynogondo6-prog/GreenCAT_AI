@@ -12,11 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build with Buildozer (Docker)
-        uses: digreatbrian/buildozer-action@v2
-        with:
-          python-version: 3.11
-          buildozer-cmd: buildozer -v android debug
+      - name: Build with official Buildozer Docker image
+        run: |
+          docker run --rm -v "$PWD":/home/user/hostcwd kivy/buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
